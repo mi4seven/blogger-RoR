@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
         #3) use params hash
         #@article = Article.new(params[:article]) 
             
-        #2)
+        #2)heroku pg:info -a thawing-wildwood-09751
         #@article = Article.new(
         #title: params[:article][:title],
         #body: params[:article][:body])  
