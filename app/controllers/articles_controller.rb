@@ -1,6 +1,12 @@
 class ArticlesController < ApplicationController
     include ArticlesHelper
 
+    before_action :check_for_cancel, :only => [:create, :update]
+
+    def check_for_cancel
+      redirect_to articles_path if params[:commit] == "Cancel"
+    end    
+
     def index
         @articles = Article.all
     end
@@ -31,12 +37,17 @@ class ArticlesController < ApplicationController
         #@article.body = params[:article][:body]        
         
         @article.save
+        flash.notice = "Article '#{@article.title}' Created!"
 
         redirect_to article_path(@article)
     end
 
-    def destroy
+    def destroy 
+        
+        @title = Article.find(params[:id]).title       
         Article.destroy(params[:id])
+        flash.notice = "Article '#{@title}' Deleted!"
+
         redirect_to articles_path
     end
 
@@ -45,9 +56,10 @@ class ArticlesController < ApplicationController
     end
 
     def update
-        @article = Article.find(params[:id])
+        @article = Article.find(params[:id])      
         @article.update(article_params)
-      
+        flash.notice = "Article '#{@article.title}' Updated!"
+
         redirect_to article_path(@article)
     end
 end
