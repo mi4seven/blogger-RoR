@@ -13,6 +13,9 @@ class ArticlesController < ApplicationController
 
     def show
         @article = Article.find(params[:id])
+
+        @comment = Comment.new
+        @comment.article_id = @article.id
     end
 
     def new
@@ -26,7 +29,7 @@ class ArticlesController < ApplicationController
         #3) use params hash
         #@article = Article.new(params[:article]) 
             
-        #2)heroku pg:info -a thawing-wildwood-09751
+        #2)
         #@article = Article.new(
         #title: params[:article][:title],
         #body: params[:article][:body])  
@@ -37,6 +40,7 @@ class ArticlesController < ApplicationController
         #@article.body = params[:article][:body]        
         
         @article.save
+        
         flash.notice = "Article '#{@article.title}' Created!"
 
         redirect_to article_path(@article)
