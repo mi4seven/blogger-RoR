@@ -69,5 +69,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "paperclip"
-bundle
-bin/rails generate migration add_paperclip_fields_to_article
+
