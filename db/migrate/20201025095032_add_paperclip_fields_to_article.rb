@@ -6,4 +6,3 @@ class AddPaperclipFieldsToArticle < ActiveRecord::Migration[5.2]
     add_column :articles, :image_updated_at,   :datetime  
   end
 end
-rank
