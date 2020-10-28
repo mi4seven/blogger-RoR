@@ -7,7 +7,8 @@
   <ul id="articles">
     <% @articles.each do |article| %>
       <li>
-      <%= link_to article.title, article_path(article) %>       
+      <%= link_to article.title, article_path(article) %>
+      <%= article.view_count %>               
       </li>
     <% end %>  
   </ul>

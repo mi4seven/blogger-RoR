@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
     end    
 
     def index
-        @articles = Article.all
+        #@articles = Article.all
+        @articles = Article.order('articles.view_count DESC').limit(3);      
     end
 
     def show
@@ -17,6 +18,8 @@ class ArticlesController < ApplicationController
 
         @comment = Comment.new
         @comment.article_id = @article.id
+
+        @article.increment_visitors;
     end
 
     def new
@@ -73,6 +76,3 @@ class ArticlesController < ApplicationController
         redirect_to article_path(@article)
     end
 end
-
-
-
