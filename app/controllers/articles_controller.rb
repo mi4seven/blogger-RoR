@@ -1,12 +1,11 @@
 class ArticlesController < ApplicationController
+    include ArticlesHelper    
+
     before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
-
-    include ArticlesHelper
-
     before_action :check_for_cancel, :only => [:create, :update]
 
     def check_for_cancel
-      redirect_to articles_path if params[:commit] == "Cancel"
+        redirect_to authors_path if params[:commit] == "Cancel"
     end    
 
     def index
@@ -59,7 +58,6 @@ class ArticlesController < ApplicationController
         flash.notice = "Article '#{@title}' Deleted!"
 
         redirect_to articles_path
-
     end
 
     def edit

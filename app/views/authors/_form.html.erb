@@ -11,27 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <pp>
     <%= form.label :username %>
     <%= form.text_field :username %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :email %>
     <%= form.text_field :email %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :password %><br />
     <%= form.password_field :password %>
-  </div>
-  <div class="field">
+  </p>
+
+  <p>
     <%= form.label :password_confirmation %><br />
     <%= form.password_field :password_confirmation %>
-  </div>
+  </p>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <p>
+    <%= form.submit "Cancel"%>
+    <%= form.submit %> 
+  </p>
 
 <% end %>

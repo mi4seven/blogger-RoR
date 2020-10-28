@@ -21,13 +21,27 @@ ol,ul{
 table{
     border-collapse:separate;
     border-spacing:0;
-    vertical-align:middle
+    vertical-align:middle;
+
+    width: 100%;
 }
 caption,th,td{
-    text-align:left;
-    font-weight:normal;
-    vertical-align:middle
+    vertical-align:middle;
+    text-align:left;    
+    padding: 8px;    
 }
+
+hd{
+    font-weight:bold;  
+}
+
+td{
+    font-weight:normal; 
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
 q,blockquote{
     quotes:"" ""
 }
@@ -594,3 +608,18 @@ input[type=submit]:active,input[type=submit]:active:visited{
  div.field_with_errors input{
     border: 3px solid red
 }
+
+.bottom_link_container {
+    background-color: #ddd;
+    width: 99%;
+    padding: 5px; 
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;  
+  }
+
+
+
+

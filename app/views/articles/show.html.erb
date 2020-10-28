@@ -7,17 +7,22 @@
   <% end %>
 </p>
 <p><%= @article.body %></p>
-
-<h3>Comments (<%= @article.comments.size %>)</h3>
-<%= render partial: 'articles/comment', collection: @article.comments %>
-<%= render partial: 'comments/form' %>
-
+<br>
 <p>
-  <p>Tags:</p>
+  <% if @article.tags.exists? %>
+      <%= "Tags:"%>
+  <% end %>
+
   <% @article.tags.each do |tag| %>
       <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
+
+<br>
+
+<h3>Comments (<%= @article.comments.size %>)</h3>
+<%= render partial: 'articles/comment', collection: @article.comments %>
+<%= render partial: 'comments/form' %>
 
 </br>
 <% if logged_in? %>
@@ -26,7 +31,8 @@
       <%= link_to "Delete Article", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}, class: "edit_delete_article"%>
   </div>
 <% end %>
-
 </br>
 
-<%= link_to "<< Back to Articles List", articles_path %>
+<div class="bottom_link_container">
+  <%= link_to "<< Back to Articles List", articles_path %>
+</div>
